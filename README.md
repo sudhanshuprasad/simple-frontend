@@ -1,1 +1,1 @@
-# simple-frontend
+# Simple Frontend
