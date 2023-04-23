@@ -37,7 +37,7 @@ export default function Card(props) {
                 <LazyLoadImage src={props.imgurl}
                     /* width={225} height={100} */
                     threshold={50}
-                    alt="food"
+                    alt="blog"
                 // effect="blur"
                 />
             </Link>
@@ -45,9 +45,7 @@ export default function Card(props) {
                 {/* <Link to={`/product/${props.num}`}> */}
                 <div className={style.item_name}>
                     <h3>{props.foodName}</h3>
-                    <h3>&#8377;{props.price}</h3>
                 </div>
-                <div>From: {props.shopName}</div>
                 <div>{props.dsc}</div>
                 <h5 className={!theme ? style.light : null}>‎ {/* this is an invisible character */}</h5>
             </div>
@@ -58,11 +56,9 @@ export default function Card(props) {
 Card.propTypes = {
     // num:PropTypes.number.isRequired,
     foodName: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     dsc: PropTypes.string
 }
 Card.defaultProps = {
-    foodName: "Unnamed Food",
-    price: 0,
-    dsc: "No discription is available for this food item"
+    foodName: "Unnamed Blog",
+    dsc: "No discription is available for this Artical"
 }

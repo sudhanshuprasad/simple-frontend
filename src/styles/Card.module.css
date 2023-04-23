@@ -1,12 +1,13 @@
 .item {
-    border: 5px solid rgb(66, 66, 66);
+    background-color: rgb(223, 223, 223);
+    border: 0px solid rgb(66, 66, 66);
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .item:hover {
-    box-shadow: 5px 5px 20px 7px rgba(0, 0, 0, 0.53);
-    transform: scale(1.02);
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.4);
+    translate: 0px -10px;
 }
 
 .item img {
@@ -59,7 +60,7 @@ h5 {
 }
 
 .light {
-    box-shadow: inset 0px -38px 5px -29px rgb(255, 255, 255);
+    box-shadow: inset 0px -38px 5px -29px rgb(223, 223, 223);
 }
 
 .content div {

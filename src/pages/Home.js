@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card'
 // import LazyCard from './lazy/Card'
 import "../styles/Grid.css";
+import dataFromDB from "../Database/data"
 import { actionCreaters } from '../state';
 import NotFound from './NotFound';
 import Navbar from '../components/Navbar';
@@ -28,7 +29,7 @@ export default function Grid() {
     const observer = new IntersectionObserver((entries) => {
         // console.log('is intersecting ',entries[0].isIntersecting)
         if (entries[0].isIntersecting && !fetchingData.current && hasMore.current) {
-            
+
             // fetchMoreData();
         }
 
@@ -39,38 +40,39 @@ export default function Grid() {
     }
 
     useEffect(() => {
-        
+        setData(dataFromDB)
         console.log('useEffect ', data);
     }, [data])
 
     return (
-        <div className='grid-container' style={{
-            // backgroundColor: theme ? "rgb(100,100,100)" : "white",
-            // color: theme ? "white" : "black",
-        }}>
-            <Navbar/>
-            {
-                data.map((element) => (
-                    <div className='card' key={element._id}>
-                        <Suspense fallback={<NotFound />}>
-                            <Card
-                                key={element._id}
-                                num={element._id}
-                                imgurl="https://picsum.photos/60"
-                                foodName={element.name}
-                                shopName={element.shopName}
-                                price={element.price}
-                                dsc={element.dsc}
-                            />
-                        </Suspense>
-                    </div>
-                ))
-            }
+        <>
+            <Navbar />
+            <div className='grid-container' style={{
+                // backgroundColor: theme ? "rgb(100,100,100)" : "white",
+                // color: theme ? "white" : "black",
+            }}>
+                {
+                    data.map((element) => (
+                        <div className='card' key={element._id}>
+                            <Suspense fallback={<NotFound />}>
+                                <Card
+                                    num={element._id}
+                                    imgurl="https://picsum.photos/60"
+                                    foodName={element.name}
+                                    shopName={element.shopName}
+                                    price={element.price}
+                                    dsc={element.dsc}
+                                />
+                            </Suspense>
+                        </div>
+                    ))
+                }
 
-            {loading ? <footer className='loading'>loading more...</footer> : <footer>End</footer>}
+                {loading ? <footer className='loading'>loading more...</footer> : <footer>End</footer>}
 
 
-            {/* {loading ? <LoadingGrid /> : null} */}
-        </div>
+                {/* {loading ? <LoadingGrid /> : null} */}
+            </div>
+        </>
     )
 }
