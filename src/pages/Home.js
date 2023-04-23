@@ -40,13 +40,15 @@ export default function Grid() {
     }
 
     useEffect(() => {
-        setData(dataFromDB)
+        setData(dataFromDB);
+        setLoading(false);
+        console.log("localstorage ",localStorage.getItem('theme'))
+        // dispatch(actionCreaters.setThemeDark(localStorage.getItem('theme')))
         console.log('useEffect ', data);
     }, [data])
 
     return (
         <>
-            <Navbar />
             <div className='grid-container' style={{
                 // backgroundColor: theme ? "rgb(100,100,100)" : "white",
                 // color: theme ? "white" : "black",
@@ -56,7 +58,7 @@ export default function Grid() {
                         <div className='card' key={element._id}>
                             <Suspense fallback={<NotFound />}>
                                 <Card
-                                    num={element._id}
+                                    _id={element._id}
                                     imgurl="https://picsum.photos/60"
                                     foodName={element.name}
                                     shopName={element.shopName}

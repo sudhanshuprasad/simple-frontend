@@ -63,6 +63,10 @@ h5 {
     box-shadow: inset 0px -38px 5px -29px rgb(223, 223, 223);
 }
 
+.dark{
+    box-shadow: inset 0px -38px 5px -29px rgb(131, 131, 131);
+}
+
 .content div {
     height: 50px;
     overflow: hidden;

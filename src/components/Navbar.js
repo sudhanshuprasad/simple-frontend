@@ -1,6 +1,6 @@
 import style from "../styles/Navbar.module.css";
 import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreaters } from "../state/index";
 
@@ -8,6 +8,7 @@ import { actionCreaters } from "../state/index";
 export default function Navbar() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const login = useSelector(state => state.login);
     const theme = useSelector(state => state.theme);
 
@@ -48,6 +49,9 @@ export default function Navbar() {
                     <ul className={`${style.nav_ul} ${style.right}`} id="right">
                         <li onClick={() => {
                             dispatch(actionCreaters.setThemeDark(!theme));
+                            localStorage.setItem('theme', theme);
+                            console.log(theme);
+                            console.log('local storage ',localStorage.getItem('theme',theme));
                         }}>
                             <div className={style.theme}>
                                 {theme ?
@@ -58,10 +62,10 @@ export default function Navbar() {
                                 }
                             </div>
                         </li>
-                        <li className={style.login}>
+                        <li className={style.login} onClick={()=>navigate("/")}>
                             Home
                         </li>
-                        <li className={style.login}>
+                        <li className={style.login} onClick={()=>navigate("/team")}>
                             Our Team
                         </li>
                         <li onClick={() => {

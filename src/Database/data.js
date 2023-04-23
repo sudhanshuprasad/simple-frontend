@@ -2,27 +2,27 @@ let data=[
     {
         _id:1,
         name:"Technology",
-        dsc:"this is technology"
+        dsc:"this is technology this is technology this is technology this is technology this is technology this is technology"
     },
     {
         _id:2,
         name:"Technology",
-        dsc:"this is technology"
+        dsc:"this is technology this is technology this is technology this is technology this is technology this is technology"
     },
     {
         _id:3,
         name:"Technology",
-        dsc:"this is technology"
+        dsc:"this is technology this is technology this is technology this is technology this is technology this is technology"
     },
     {
         _id:4,
         name:"Technology",
-        dsc:"this is technology"
+        dsc:"this is technology this is technology this is technology this is technology this is technology this is technology"
     },
     {
         _id:5,
         name:"Technology",
-        dsc:"this is technology"
+        dsc:"this is technology this is technology this is technology this is technology this is technology this is technology"
     },
     {
         _id:6,

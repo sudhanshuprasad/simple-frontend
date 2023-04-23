@@ -31,8 +31,9 @@ export default function Card(props) {
     }, [])
 
     return (
-        <div className={style.item} id={"item" + props.num}>
-            <Link to={`/product/${props.num}`}>
+        <div className={style.item} id={"item" + props._id}>
+            {console.log(props._id)}
+            <Link to={`/blog/${props._id}`}>
                 {/* <img src={props.imgurl} alt="food" loading="lazy" /> */}
                 <LazyLoadImage src={props.imgurl}
                     /* width={225} height={100} */
@@ -44,7 +45,7 @@ export default function Card(props) {
             <div className={style.content}>
                 {/* <Link to={`/product/${props.num}`}> */}
                 <div className={style.item_name}>
-                    <h3>{props.foodName}</h3>
+                    <h3>{props.itemName}</h3>
                 </div>
                 <div>{props.dsc}</div>
                 <h5 className={!theme ? style.light : null}>‎ {/* this is an invisible character */}</h5>
@@ -55,10 +56,10 @@ export default function Card(props) {
 
 Card.propTypes = {
     // num:PropTypes.number.isRequired,
-    foodName: PropTypes.string.isRequired,
+    itemName: PropTypes.string.isRequired,
     dsc: PropTypes.string
 }
 Card.defaultProps = {
-    foodName: "Unnamed Blog",
+    itemName: "Unnamed Blog",
     dsc: "No discription is available for this Artical"
 }
