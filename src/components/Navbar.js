@@ -38,6 +38,13 @@ export default function Navbar() {
                             <li><h2 className={`${style.fc}`} id="fc">FlexiBlog</h2></li>
                         </ul>
                     </Link>
+
+                    {/* central section */}
+                    <div className={style.search_area}>
+                        <input className={style.search_bar} type="text" placeholder="Search"></input>
+                        <img className={style.search_icon} alt="search" src="https://img.icons8.com/glyph-neue/64/null/search--v1.png"/>
+                    </div>
+
                     <ul className={`${style.nav_ul} ${style.right}`} id="right">
                         <li onClick={() => {
                             dispatch(actionCreaters.setThemeDark(!theme));
@@ -51,17 +58,23 @@ export default function Navbar() {
                                 }
                             </div>
                         </li>
+                        <li className={style.login}>
+                            Home
+                        </li>
+                        <li className={style.login}>
+                            Our Team
+                        </li>
                         <li onClick={() => {
                             // SetLogin(true);
                             dispatch(actionCreaters.setLogin(!login))
-                        }}>
+                        }} className={style.login}>
                             {
-                                <div to="/login"><p className={style.login} id='login'>{!login?"Login":"LogOut"}</p></div>
+                                <div><p id='login'>{!login?"Login":"LogOut"}</p></div>
                             }
                         </li>
                         {login ? <>
                             <li>
-                                <div to="/profile/a">
+                                <div>
                                     <img className={`${style.profile}`} src="https://img.icons8.com/windows/32/ffffff/user-male-circle.png" alt="profile" id="profile" />
                                 </div>
                             </li>
